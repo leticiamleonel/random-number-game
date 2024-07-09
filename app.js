@@ -1,12 +1,14 @@
 alert('Bem-vindo ao jogo do número secreto!')
-let secretNumber = 5, shot, attempts = 1;
+
+let shot, attempts = 1, maxNumber = 1000;
+let secretNumber = parseInt(Math.random()*maxNumber+1);
 console.log(secretNumber);
 
 while(shot != secretNumber){
-    shot = prompt('Escolha um número entre 1 e 10');
+    shot = prompt('Escolha um número entre 1 e ' + maxNumber);
 
     if(shot == secretNumber){
-        alert('Parabéns! Você acertou o número: ' + secretNumber + ', com ' + attempts + ' tentativas.');
+        break;
     } else {
         if(secretNumber > shot){
             alert('O número secreto é maior que ' + shot); 
@@ -17,5 +19,8 @@ while(shot != secretNumber){
     }   
 }
 
+//operador ternário: ao invés de usar if e else
+let attemptsWords = attempts > 1 ? 'tentativas.' : 'tentativa.';
+alert('Parabéns! Você acertou o número: ' + secretNumber + ', com ' + attempts + ' ' + attemptsWords);
 
         
